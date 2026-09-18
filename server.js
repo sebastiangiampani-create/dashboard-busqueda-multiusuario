@@ -16,6 +16,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+// Servir index.html en la raíz
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Configuración OAuth
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
