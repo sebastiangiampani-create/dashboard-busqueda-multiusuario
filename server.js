@@ -36,6 +36,7 @@ app.get('/auth/url', (req, res) => {
   const authUrl = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/drive.readonly'],
+    redirect_uri: process.env.REDIRECT_URI
   });
   res.json({ url: authUrl });
 });
